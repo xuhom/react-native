@@ -23,7 +23,9 @@
                                              selector:@selector(_textDidChange)
                                                  name:UITextFieldTextDidChangeNotification
                                                object:self];
-
+    if (@available(iOS 10, *)){
+      self.textContentType = @"";
+    }
     _textInputDelegateAdapter = [[RCTBackedTextFieldDelegateAdapter alloc] initWithTextField:self];
   }
 
